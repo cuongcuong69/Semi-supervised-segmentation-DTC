@@ -1,0 +1,10 @@
+data/processed/LUNG1-001/image.nii.gz|data/processed/LUNG1-001/lungmask.nii.gz
+data/processed/LUNG1-002/image.nii.gz|data/processed/LUNG1-002/lungmask.nii.gz
+data/processed/LUNG1-003/image.nii.gz|data/processed/LUNG1-003/lungmask.nii.gz
+data/processed/LUNG1-004/image.nii.gz|data/processed/LUNG1-004/lungmask.nii.gz
+data/processed/LUNG1-005/image.nii.gz|data/processed/LUNG1-005/lungmask.nii.gz
+data/processed/LUNG1-006/image.nii.gz|data/processed/LUNG1-006/lungmask.nii.gz
+data/processed/LUNG1-007/image.nii.gz|data/processed/LUNG1-007/lungmask.nii.gz
+data/processed/LUNG1-008/image.nii.gz|data/processed/LUNG1-008/lungmask.nii.gz
+data/processed/LUNG1-009/image.nii.gz|data/processed/LUNG1-009/lungmask.nii.gz
+data/processed/LUNG1-010/image.nii.gz|data/processed/LUNG1-010/lungmask.nii.gz
