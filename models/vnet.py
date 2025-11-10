@@ -247,12 +247,11 @@ class VNet(nn.Module):
     #             m.bias.data.zero_()
 if __name__ == '__main__':
     # compute FLOPS & PARAMETERS
-    from thop import profile
-    from thop import clever_format
+    from thop import profile, clever_format
     model = VNet(n_channels=1, n_classes=2)
-    input = torch.randn(4, 1, 112, 112, 80)
-    flops, params = profile(model, inputs=(input,))
-    print(flops, params)
+    inputs = torch.randn(2, 1, 144, 144, 112)
+    seg = model(inputs)
+    print("seg:", seg.shape)   # (B,2,...)
+    flops, params = profile(model, inputs=(inputs,))
     macs, params = clever_format([flops, params], "%.3f")
-    print(macs, params)
-    print("VNet have {} paramerters in total".format(sum(x.numel() for x in model.parameters())))
+    print("FLOPs/Params:", macs, params)

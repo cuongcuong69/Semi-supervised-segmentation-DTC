@@ -12,13 +12,17 @@ Sinh 4 file:
 """
 
 from pathlib import Path
+supervised = True
 
 ROOT = Path(__file__).resolve().parents[1]  # d:\Semi-supervised segmentation
 DATA_ROOT = ROOT / "data" / "processed"
-CONFIGS = ROOT / "configs"
+if supervised:
+    CONFIGS = ROOT / "configs" / "supervised"
+else:
+    CONFIGS = ROOT / "configs" 
 CONFIGS.mkdir(parents=True, exist_ok=True)
 
-LABELED_TXT   = CONFIGS / "splits_lung_train_labeled.txt"
+LABELED_TXT   = CONFIGS /  "splits_lung_train_labeled.txt"
 UNLABELED_TXT = CONFIGS / "splits_lung_train_unlabeled.txt"
 VAL_TXT       = CONFIGS / "splits_lung_val.txt"
 TEST_TXT      = CONFIGS / "splits_lung_test.txt"
@@ -68,10 +72,10 @@ def write_unlabeled_range(start, end, fh):
 
 def main():
     with open(LABELED_TXT, "w", encoding="utf-8") as f:
-        write_labeled_range(1, 10, f)     # train labeled
+        write_labeled_range(1, 60, f)     # train labeled
 
-    with open(UNLABELED_TXT, "w", encoding="utf-8") as f:
-        write_unlabeled_range(11, 60, f)  # train unlabeled
+    # with open(UNLABELED_TXT, "w", encoding="utf-8") as f:
+    #     write_unlabeled_range(11, 60, f)  # train unlabeled
 
     with open(VAL_TXT, "w", encoding="utf-8") as f:
         write_labeled_range(61, 80, f)    # validation (with labels)
@@ -81,7 +85,7 @@ def main():
 
     print("[OK] Wrote splits:")
     print(" -", LABELED_TXT)
-    print(" -", UNLABELED_TXT)
+    # print(" -", UNLABELED_TXT)
     print(" -", VAL_TXT)
     print(" -", TEST_TXT)
 
